@@ -1,12 +1,14 @@
 import React from "react";
-import "./style.css";
 
-function DeleteBtn(props) {
+function Nav() {
     return (
-        <span className="delete-btn" {...props} role="button" tabIndex="0">
-            ✗
-        </span>
+       <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+            <a className="navbar-brand" href="/">
+                Books on Demand
+            </a>
+        </nav>
+
     );
 }
 
-export default DeleteBtn;
+export default Nav;
