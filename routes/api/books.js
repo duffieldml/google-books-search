@@ -4,12 +4,11 @@ const booksController = require("../../controllers/booksController");
 //Route to match with "api/books"
 router.route("/")
   .get(booksController.findAll)
-  .post(booksController.create);
+  .post(booksController.save);
 
 router
     .route("/:id")
-    .get(booksController.findById)
-    .put(booksController.update)
+    .get(booksController.findOne)
     .delete(booksController.remove);
 
 module.exports = router;
