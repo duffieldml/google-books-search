@@ -1,12 +1,16 @@
 import React from "react";
 import "./style.css";
 
-function DeleteBtn(props) {
+export function List({ children }) {
     return (
-        <span className="delete-btn" {...props} role="button" tabIndex="0">
-            ✗
-        </span>
+        <div className="list-overflow-container">
+            <ul className="list-group">{children}</ul>
+        </div>
     );
 }
 
-export default DeleteBtn;
+export function ListItem({ children }) {
+    return (
+        <li className="list-group-item">{children}</li>
+    );
+}
