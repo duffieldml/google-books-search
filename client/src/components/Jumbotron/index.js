@@ -1,12 +1,12 @@
 import React from "react";
-import "./style.css";
 
-function DeleteBtn(props) {
+function Jumbotron({ children }) {
     return (
-        <span className="delete-btn" {...props} role="button" tabIndex="0">
-            ✗
-        </span>
+        <div style= {{ height: 300, clear: 'both', paddingTop:120, textAlign: "center"}}
+            className="jumbotron">
+                {children}
+            </div>
     );
 }
 
-export default DeleteBtn;
+export default Jumbotron;
