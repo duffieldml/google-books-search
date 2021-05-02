@@ -17,7 +17,7 @@ class Search extends Component {
         API.googleBooks(this.state.search)
             .then(res => {
                 this.setState({
-                books: res.data.itmes,
+                books: res.data.items,
                 search:""})
             })
             .catch(err => console.log(err));
@@ -35,17 +35,17 @@ class Search extends Component {
         this.bookSearch();
     };
 
-    saveThisBook = currentBook => {
-        console.log("Current book: " + currentBook);
+    saveThisBook = book => {
+        console.log("Current book: " + book);
         API.saveBook({
-            id: currentBook.id,
-            title: currentBook.title,
-            authors: currentBook.authors,
-            description: currentBook.description,
-            image: currentBook.image,
-            link: currentBook.link
+            id: book.id,
+            title: book.title,
+            authors: book.authors,
+            description: book.description,
+            image: book.image,
+            link: book.link
         })
-        .then(res => console.log("Book successfully posted to DB: " + res))
+        .then(res => console.log("Book successfully posted to DB: " + book))
         .catch(err => console.log(err));
     }
 
@@ -72,10 +72,11 @@ class Search extends Component {
                         saveThisBook={this.saveThisBook}>
                         </ResList>
 
-                    ) : (
+                    ) 
+                    : (
                         <div>
                             <hr/>
-                            <p style={{fontStyle: "italic"}}>No books found</p>
+                            <p style={{fontStyle: "italic"}}>No books to display</p>
                         </div>
                     )}
                 </Container>
